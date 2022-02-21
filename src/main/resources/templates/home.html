@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{base :: head}"></head>
+<body>
+	<div th:replace="~{base :: navbar}"></div>
+	<div class="card w-75 p-3"
+		style="margin-top: 1em; margin-left: auto; margin-right: auto; width: 30em">
+		<div class="card-header">
+			<h5 class="card-title">Produtos</h5>
+		</div>
+		<div class="card-body" th:each="produto : ${produtos}">
+			<div th:text="${produto.nome}">Nome do
+				Produto</div>
+			<div th:text="${produto.valor}">Valor do
+				Produto</div>
+			<div th:text="${produto.descricao}">Descrição
+				do Produto</div>
+			
+			<div>
+				<a th:href="${produto.linkAmazon}"> Link Amazon </a>
+			</div>
+			<div class="col-12 col-sm-4">
+				<div>
+					<img class="img-thumbnail" target="_blank" th:src="${produto.imagem}" src="" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
